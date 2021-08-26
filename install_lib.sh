@@ -38,9 +38,11 @@ if [ "${ARCH}" != "x86_64" ]; then
     if [ "${ARCH}" != "i386" ]; then
         if [ "${ARCH}" != "i686" ]; then
             if [ "${ARCH}" != "Alpine64" ]; then
-                echo "The architecture on this device (${ARCH}) is not currently supported."
-                echo "Please contact software@sdrplay.com for details on platform support."
-                exit 1
+                if [ "${ARCH}" != "aarch64" ]; then
+                    echo "The architecture on this device (${ARCH}) is not currently supported."
+                    echo "Please contact software@sdrplay.com for details on platform support."
+                    exit 1
+		fi
             fi
         fi
     fi
